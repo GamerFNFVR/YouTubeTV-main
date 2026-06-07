@@ -62,7 +62,7 @@ class Main {
             this.i18n = new I18n(this.language);
         } catch(err) {
             if(err instanceof Error) {
-                if(err.code === 'ENOENT') {
+                if((err as NodeJS.ErrnoException).code === 'ENOENT') {
                     dialog.showErrorBox('Error de lectura de fichero de idiomas', `YouTube TV no ha podido continuar la ejecución porque no es capaz de cargar los archivos de idiomas.\nEsto suele deberse a una instalación corrupta, se sugiere reinstalar YouTube TV para corregir este error.`)
                     await Dialog.showDialog('Visitar el sitio de descargas', 'Visitar el sitio de descargas', '¿Deseas visitar el sitio de descargas de YouTube TV?', [ 'Si', 'No' ], 1)
                     .then(async v => {

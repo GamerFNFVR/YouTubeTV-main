@@ -52,7 +52,7 @@ export class I18n {
             this.content = JSON.parse(data);
         } catch(err) {
             if(err instanceof Error) {
-                if(err.code === 'ENOENT' && this._lang !== 'en-US') return new I18n('en-US');
+                if((err as NodeJS.ErrnoException).code === 'ENOENT' && this._lang !== 'en-US') return new I18n('en-US');
                 else throw err;
             } else throw err;
         }

@@ -39,7 +39,7 @@ export class Persistence {
             } else if(err instanceof Error) {
 
                 // El fichero de configuración no existe.
-                if(err.code == 'ENOENT') {
+                if((err as NodeJS.ErrnoException).code == 'ENOENT') {
 
                     try {
 
