@@ -38,5 +38,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: youtube-tv-win32-x64
-          path: ../YTV_Builds/**
+          path: ${{ github.workspace }}/../YTV_Builds/**
           if-no-files-found: error
