@@ -32,7 +32,7 @@ jobs:
         run: npm run compile
 
       - name: Build Windows x64 installer
-        run: npm run build:winx64
+        run: npm run build:winx64 -- --publish never
 
       - name: Upload Windows x64 artifact
         uses: actions/upload-artifact@v4
